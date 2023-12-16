@@ -1,0 +1,51 @@
+public class NQueens {
+
+char[][] board;
+		
+public NQueens(int size) {
+	board = new char[size][size];
+	for (int r=0; r<board.length; r++) 
+		for (int c=0; c<board[0].length; c++) 
+			board[r][c] = '^';
+
+	}
+
+public char[][] getBoard() {
+	return board;
+}
+
+public void printBoard() {
+	for (int r=0; r<board.length; r++) {
+		for (int c=0; c<board[0].length; c++) {
+			System.out.print(board[r][c]);
+		}
+    System.out.println();
+}
+}
+		
+//put a queen in column 0
+public void start(){
+placeQueen(0);
+}
+	
+	
+//Look in the column col for a valid place to put the queen 
+//If no valid place BackTrack
+private boolean placeQueen(int col) {
+		return false;
+			
+}
+			
+		
+//Check if this is a valid sport for a queen.  Check the row and both diagonals.		
+private boolean isValid(int row, int col){	
+return true;
+}
+
+public static void main(String[] args) {
+	NQueens one = new NQueens(8);
+	one.start();
+	one.printBoard();
+}
+
+}

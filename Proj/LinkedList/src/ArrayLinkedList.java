@@ -1,0 +1,167 @@
+import java.util.NoSuchElementException;
+
+public class ArrayLinkedList<E> implements MyList<E> {
+	
+    private Object[] list;
+
+    /**
+     * Constructor for objects of class MyArrayList
+     */
+    public ArrayLinkedList()
+    {
+        list = new Object[0];
+    }
+
+    public Object[] getList() {
+    	return list;
+    }
+    
+	@Override
+	public boolean add(E o) {
+	    addLast(o);
+	    return true;
+	}
+	
+
+	@Override
+	public void addFirst(E o) {
+	    Object[] temp = new Object[size() + 1];
+	    temp[0] = o;
+	    for (int i = 0; i < list.length; i++) {
+	        temp[i + 1] = list[i];
+	    }
+	    list = temp;
+	}
+	
+		
+	
+
+	@Override
+	public Object getFirst() {
+	    if (size() == 0) {
+	        throw new NoSuchElementException("Empty List");
+	    }
+	    return list[0];
+	}
+
+	@Override
+	public Object getLast() {
+		if(size() == 0) {
+			throw new NoSuchElementException("Empty List");
+		}
+		return list[list.length-1];
+	}
+
+	@Override
+	public Object removeFirst() {
+		Object[] temp = new Object[list.length - 1];
+		Object tempx = list[0];
+		for(int i = 1; i <list.length; i++) {
+			temp[i-1] = list[i];
+		}
+		list = temp;	
+		return tempx;
+	}
+
+	@Override
+	public Object removeLast() {
+		Object[] temp = new Object[list.length - 1];
+		Object tempx = list[list.length-1];
+		for(int i = 0; i <list.length-1; i++) {
+			temp[i] = list[i];
+		}
+		list = temp;	
+		return tempx;
+	}
+	
+	
+
+	@Override
+	public int size() {
+		if(list.length == 0) {
+			throw new NoSuchElementException("Empty List");
+		}
+		return list.length;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		if(this.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void addLast(E o) {
+		Object[] temp = new Object[list.length + 1];
+	    for (int i = 0; i < list.length; i++) {
+	        temp[i] = list[i];
+	    }
+	    temp[temp.length - 1] = o;
+	    list = temp;
+	}
+	
+	public void clear() {
+		list = new Object[0];
+	}
+	public String toString() {
+	    if (list.length == 0) {
+	        return "[]";
+	    }
+	    if (list.length == 1) {
+	        return "[" + list[0] + "]";
+	    }
+	    String s = "[";
+
+	    for (int i = 0; i < list.length - 1; i++) {
+	        s += list[i] + ", ";
+	    }
+	    s += list[list.length - 1] + "]";
+	    return s;
+	}
+	
+	public static void main(String[] args) {
+        ArrayLinkedList<String> roster = new ArrayLinkedList<String>();
+        roster.add("three");
+        roster.addLast("four");
+        roster.addFirst("two");
+        roster.addFirst("one");
+        roster.addLast("five");
+        System.out.println(roster);
+        roster.add("six"); //adds to end
+        System.out.println(roster);
+        System.out.println(roster.removeFirst()); // removes first
+        System.out.println(roster);
+        System.out.println(roster.removeLast());
+        System.out.println(roster);
+        System.out.println(roster.size());
+        System.out.println(roster.removeLast()); // removes last
+        System.out.println(roster);
+        System.out.println(roster.getLast());
+        System.out.println(roster.getFirst());
+        roster.clear();
+        System.out.println(roster.size());
+        System.out.println(roster.getFirst());
+        
+        /*OUTPUT:
+        [one, two, three, four, five]
+        [one, two, three, four, five, six]
+        one
+        [two, three, four, five, six]
+        six
+        [two, three, four, five]
+        4
+        five
+        [two, three, four]
+        four
+        two
+        0
+        Exception in thread "main" java.util.NoSuchElementException: No elements in an empty list
+            at arrayLL.ArrayLinkedList.getFirst(ArrayLinkedList.java:40)
+            at arrayLL.ArrayLinkedList.main(ArrayLinkedList.java:143)    
+*/
+}
+	
+    
+    }

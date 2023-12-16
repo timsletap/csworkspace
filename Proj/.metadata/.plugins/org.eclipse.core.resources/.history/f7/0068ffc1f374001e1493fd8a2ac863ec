@@ -1,0 +1,18 @@
+package arrayLL;
+
+import java.util.NoSuchElementException;
+
+public class ArrayLinkedList<E> implements MyList<E> {
+	
+    private Object[] list;
+
+    /**
+     * Constructor for objects of class MyArrayList
+     */
+    public ArrayLinkedList()
+    {
+        list = new Object[0];
+    }
+	
+    
+    }

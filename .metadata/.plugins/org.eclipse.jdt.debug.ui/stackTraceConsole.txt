@@ -1,0 +1,14 @@
+int count = 0; 
+		while(current.getNext() != null && current.getNext().getValue() != o) {
+			current = current.getNext();
+			count++;
+		}
+		if(count == this.size()) {
+			return false;
+		}
+		if(current.getNext() == null) {
+			return false;
+		} else { 
+		current.setNext(current.getNext().getNext());
+		}
+		return true;

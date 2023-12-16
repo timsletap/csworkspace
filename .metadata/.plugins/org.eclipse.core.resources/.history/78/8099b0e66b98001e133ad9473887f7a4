@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class practice {
+
+	public static void main(String[] args) {
+		LinkedList<String> staff = new LinkedList<String>();
+		ListIterator<String> iterator = staff.listIterator();
+		staff.addLast("Z");
+		staff.addLast("X");
+		staff.addLast("W");
+		staff.addLast("V");
+		iterator = staff.listIterator();
+		iterator.remove();
+		
+		System.out.print(staff);
+		
+	}
+}

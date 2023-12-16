@@ -1,0 +1,20 @@
+
+public class TowersOfHanoi {
+	public static int count = 0;
+	
+	public static void move(int n, int startPole, int endPole) {
+		if(n==0) {
+			return;
+		}
+		move(n-1, startPole, 6-startPole-endPole);
+		System.out.println("Move Disc " + n + " from pole " + startPole + " to "+endPole);
+		move(n-1, startPole, 6-startPole-endPole);
+	}
+	
+	public static void main(String[] args) {
+		move(4,1,3);
+		
+	}
+
+	
+}

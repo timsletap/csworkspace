@@ -1,0 +1,32 @@
+package myALL;
+import java.util.NoSuchElementException;
+
+public class ArrayIterator {
+	boolean canRemove;
+	int pointer;
+	ArrayLinkedList<?> list;
+	
+	public ArrayIterator(ArrayLinkedList<?> myList) {
+		canRemove = false;
+		list = myList;
+		pointer = 0;
+	}
+	
+
+
+
+public boolean hasNext() {
+	return pointer < list.size();
+}
+
+public Object next() {
+	if(list.size() == 0) {
+		throw new NoSuchElementException("List is empty");
+	}
+	if(pointer >= list.size()) {
+		throw new NoSuchElementException("No more elements in list");
+	}
+	canRemove = true;
+	return list.getList()[pointer++];
+		}
+}

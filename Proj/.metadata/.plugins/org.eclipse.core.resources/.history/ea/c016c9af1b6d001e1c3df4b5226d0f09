@@ -1,0 +1,95 @@
+public class Maze
+{
+	   private char[][] maze;
+	   private int steps;
+	
+
+	
+	public Maze(char[][] aMaze)
+	   {
+	      maze = aMaze;
+	      steps =0;
+	    
+	   }
+   
+	public int getSteps() {
+		return steps;
+	}
+
+
+   private boolean escape(int r, int c){
+	   steps++;
+	   if(this.isExit(r, c)) {
+		   maze[r][c] = 'a';
+		   return true; 
+	   } 
+	   if(maze[r][c] == 'a' || maze[r][c] == '*') {
+		   return false;
+	   }
+	   maze[r][c] = 'a';
+	   
+	   if(escape(r+1, c)) {
+		   return true;
+	   }
+	   if(escape(r-1, c)) {
+		   return true; 
+	   }
+	   if(escape(r,c+1)) {
+		   return true;
+	   }
+	   if(escape(r, c-1)) {
+		   return true;
+	   } 
+		   maze[r][c] = ' ';
+		   return false;
+	   }
+	  
+	  
+   
+   private boolean isExit(int r, int c){
+	   if(((c == 0) || r == 0 || c == maze[0].length || r == maze.length-1) && maze[r][c] != '*') {
+		   return true;
+	   } else {
+		   return false;
+	   }
+   }
+      
+  
+   public void display(){
+	   for(int r = 0; r < maze.length; r++) {
+		   for(int c = 0; c < maze[r].length; c++) {
+			   System.out.print(maze[r][c]);
+		   }
+		   System.out.println();
+	   }
+   }
+     
+   
+ 
+   
+public static void main(String args[])
+{
+char[][] m = {
+      {'*', '*', '*', ' ', '*', '*', '*', '*', '*'}, 
+      {'*', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*'}, 
+      {'*', ' ', '*', '*', '*', '*', '*', ' ', '*'}, 
+      {'*', ' ', '*', ' ', '*', ' ', ' ', ' ', '*'}, 
+      {'*', ' ', '*', ' ', '*', '*', '*', ' ', '*'}, 
+      {'*', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*'}, 
+      {'*', '*', '*', ' ', '*', ' ', '*', ' ', '*'}, 
+      {'*', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*'}, 
+      {'*', '*', '*', '*', '*', '*', '*', '*', '*'}};
+      
+ 
+      
+ 
+   Maze maze = new Maze(m);
+   maze.display();
+   System.out.println();
+   System.out.println();
+   maze.escape(4,3);
+   maze.display();
+   System.out.println("Steps:" + maze.getSteps());
+ 
+}
+}

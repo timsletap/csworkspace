@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;AP and AT CS /eclipse-workspace (1)&apos; to &apos;Units&apos;" description="Rename resource &apos;eclipse-workspace (1)&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="eclipse-workspace (1)" name="Units" stamp="1700011393871" updateReferences="true"/>
+</session>

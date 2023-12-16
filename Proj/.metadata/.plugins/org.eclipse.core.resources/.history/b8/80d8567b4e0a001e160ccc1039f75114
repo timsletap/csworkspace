@@ -1,0 +1,147 @@
+public class RecursionMethods2 {
+
+	/*
+	 * 1. This recursive method prints the following 10 9 8 7 6 5 4 3 2 1 BLASTOFF
+	 */
+
+	public static void blastoff() {
+		blastoff(10);
+	}
+
+	// Helper Methods
+	private static void blastoff(int n) {
+		if(n == 1) {
+			System.out.print(" 1 BLASTOFF");
+		} else {
+			System.out.print(" "+(n));
+			blastoff(n-1);
+		}
+		
+			}
+
+	
+
+	/*
+	 * 2. This method recursively removes the vowels of a string
+	 */
+	public static String removeVowels(String word) {
+		if(word.length() == 0) {
+			return "";
+		} else {
+			String temp = "AEIOUaeiou";
+			if(temp.contains(word.substring(0,1))) {
+				return ""+ removeVowels(word.substring(1));
+			} else {
+				 return word.substring(0, 1) + removeVowels(word.substring(1));
+			}
+		}
+	}
+
+	/*
+	 * 3. This method recursively determines if a number is prime
+	 */
+
+	public static boolean isPrime(int n) {
+		return isPrime(n, n - 1);
+	}
+
+	// Helper Method
+	private static boolean isPrime(int n, int divisor) {
+		if(divisor == 1) {
+			return true;
+		} else {
+			if(n % divisor == 0) {
+				return false;
+			}
+			return isPrime(n, divisor - 1);
+		}
+			}
+
+	/*
+	 * 4. This method recursively calculates compoundInterest
+	 */
+	public static double calcCompoundInterest(double principle, double rate, int years) {
+		if(years == 0) {
+			return principle;
+		} else {
+			return calcCompoundInterest(principle * (1 + rate/100), rate, years - 1);
+		}
+	}
+	/*
+	 * 5. Calculates the sum of first y terms in this alternating series.
+	 * 1-1/3+1/5-1/7... the sum approaches pi/4 at y gets larger
+	 **/
+	public static double piOverFour(int y) {
+		if(y == 1) {
+			return 1;
+		}
+		return Math.pow(-1,  y + 1) / (2 * y - 1) + piOverFour(y-1); 
+
+		
+
+	}
+
+	/*
+	 * 6. Heron's method of finding square root If n is the square root of N,
+	 * obviously, dividing N by n gives n. We can look at the square root as the
+	 * average of the factor and the quotient. If you divide N by a number x which
+	 * is not the square root, you will get the quotient different from the square
+	 * root. However the average of the factor and the quotient is closer to the
+	 * actual root than the starting number x. This is the principle of Heron's
+	 * method of finding square root of a number. Ex: To find the square root of
+	 * 500: Let us guess that the square root is 20. Divide 500 by 20 to get the
+	 * quotient 25. Take the average of the factor 20 and the quotient 25, which is
+	 * 22.5. This 22.5 is closer to the actual root of 500 than the initial estimate
+	 * of 20. Repeating the above process: 500/22.5 = 22.2222 Average of 22.5 and
+	 * 22.2222 is 22.3611. For more accuracy, we can repeat the step once again to
+	 * get the next estimate as 22.36068. The actual square root of 500 is 22.36068.
+	 */
+	// This method estimates the square root of a number
+	// Uses Herons method for the calculation. Your estimate should be //accurate to
+	// 5 decimal places
+	public static double squareRoot(double n) {
+		return squareRoot(n, 2);
+	}
+
+	public static double squareRoot(double n, double prevGuess) {
+		
+		if(n / prevGuess == prevGuess) {
+			return prevGuess;
+		} else {
+			return  prevGuess+ squareRoot((n+prevGuess)/2);
+		}
+
+		
+	}
+
+	public static void main(String[] args) {
+		blastoff(10);
+		System.out.println(isPrime(37));
+		System.out.println(isPrime(99));
+		System.out.println(calcCompoundInterest(100, 5, 10));
+		System.out.println(piOverFour(25));
+		System.out.println(removeVowels("CONNOLLY"));
+		System.out.println(squareRoot(120)); 
+	}
+
+/*OUTPUT
+	10
+	9
+	8
+	7
+	6
+	5
+	4
+	3
+	2
+	1
+	BLASTOFF
+	true
+	false
+	162.8894626777442
+	0.7953941713587581
+	CNNLLY
+	10.954451150103322
+	*/
+
+}

@@ -1,0 +1,284 @@
+
+public class LoopingFun2022 {
+	
+	public static String printFactors(int n) {
+		String factors = "";
+		for(int i = 1; i <= n; i++) {
+			if(n % i == 0) {
+				factors+=i + " ";
+			}
+		}
+		return factors;
+	}
+	public static int sumInts(int n) {
+		int sum = 0;
+		for(int i = 1; i <=n; i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	public static long factorial(int n) {
+		long factorial = 1;
+		for(int i = 2; i <= n; i++) {
+			factorial*=i;
+		}
+		return factorial;
+	}
+	public static boolean isEven(int n) {
+		if(n % 2 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public static boolean isPrime(int n) {
+		int x = 0;
+		for(int i = 1; i <= n; i++) {
+			if(n % i == 0) {
+				x++;
+			}
+		}
+		if(x == 2) {
+			return true;
+		} else { 
+			return false;
+		}
+	}
+	public static int lcm(int a, int  b) {
+		for(int i = Math.min(a, b); i <= a*b; i++) {
+			if(a % i == 0 && b % i == 0 ) {
+				return i;
+			}
+		}
+		return a*b;
+	}
+	public static int gcf(int a, int  b) {
+		int g = 0;
+		for(int i =1; i <= Math.min(a, b); i++) {
+			if(a % i == 0 && b % i == 0 ) {
+				g = i;
+			}
+		}
+		return g;
+	}
+	public static int sumDigits(int n) {
+		int sum = 0;
+		String s = Integer.toString(n);
+		for(int i = 0; i < s.length(); i++) {
+			sum += Character.getNumericValue(s.charAt(i));
+		}
+		return sum;
+	}
+	public static void primeNumberList(int n) {
+		for(int i = 1; i <= n; i++) {
+			if(isPrime(i)) {
+				System.out.print(i+" ");
+			}
+		}
+	}
+	public static int reverseNum(int n) {
+		int rev = 0;
+		int dig;
+		while(n > 0) {
+			dig = n % 10;
+			rev = 10 * rev + dig;
+			n = n/10;
+		}
+		return rev;
+	}
+	public static int countDigits(int n) {
+		int count = 0;
+		while(n > 0) {
+			count++;
+			n /= 10;
+		}
+		return count;
+	}
+	public static void fibonacci(int n) {
+		int a = 1;
+		int b = 1;
+		System.out.print(a+ " " + b + " ");
+		for(int i = 3; i <= n; i++) {
+			int c = a + b;
+			System.out.print(c+ " ");
+			a = b;
+			b = c;
+			
+		}
+		
+	}
+	public static boolean isPerfect(int n) {
+		int factors = 0;
+		for(int i = 1; i < n; i++) {
+			if(n % i == 0) {
+				factors+=i;
+			}
+		}
+		if(factors == n) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public static void primeFactorization(int n) {
+		for(int i = 2; i <= n; i++) {
+			while(n%i == 0) {
+				System.out.print(i + " ");
+				n = n/i;
+			}
+		}
+	}
+	public static void pyramid(int n) {
+		int line, blanks, stars, temp;
+		System.out.println();
+		for(line = 1; line <= n; line++) {
+			blanks = n - line;
+			stars = line * 2 - 1;
+			for(temp = 1; temp <= blanks; temp++) {
+				System.out.print(" ");
+			}
+			for(temp = 1; temp <= stars; temp++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+	}
+	public static int binary(int n) {
+		int bin = 0;
+		int powOf2 = 256;
+		while(powOf2 >= 1) {
+			if(n >= powOf2) {
+				bin = bin * 10 + 1;
+				n -= powOf2;
+			} else {
+				bin *= 10;
+			}
+			powOf2 /= 2;
+		}
+		return bin;
+	}
+	// n trials of a coin toss:
+	// ie (for n = 100).
+	// Heads: 47 47%
+	// Tails: 53 53%
+	public static void coinTrials(int n) {
+		int heads=0;
+		int tails=0;
+		for(int i = 1; i <= n; i++) {
+			if(Math.random() < 0.5) {
+				heads++;
+			} else {
+				tails++;
+			}
+		}
+		System.out.println("Heads: "+ heads + "   "+ (100.0)*heads / n + "%");
+		System.out.println("Tails: "+ tails + "   "+ (100.0)*tails / n + "%");
+	}
+	// 18. This method prints a isosceles right triangle of asterisks with base and
+	// height = n
+	public static void triangle(int n) {
+		for(int i = 1; i <= n; i++) {
+			for(int j = 1; j <= i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	// 19. creates an nxn matrix of the number n
+	public static void nXn(int n) {
+		for(int i = 1; i <= n; i++) {
+			for(int j = 1; j <= n; j++) {
+				System.out.print(n);
+			}
+			System.out.println();
+		}
+	}
+	// 20. This method prints a rowXcol matrix of asterisks
+	public static void matrix(int row, int col) {
+		for(int i = 1; i <= row; i++) {
+			for(int j = 1; j <= col; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	// 21. print a sales tax chart of tax values 5% to 9%
+	// on dollar values of $0 to $100 in increments of $5
+	// include row and column headers
+	public static void salesTaxChart() {
+
+			for(int j = 5; j <= 9; j++) {
+				System.out.printf("%5s", j + "%");
+			} 
+			System.out.println();
+			for(int cash = 0; cash <= 100; cash+= 5) {
+				System.out.print("$"+cash);
+				for(int g = 5; g <= 9; g++) {
+					double tax = g / 100.0 * cash;
+					System.out.printf("%5.2f", tax);
+				}
+				System.out.println();
+		}
+			
+	}
+	public static boolean isTriangleNumber(long n) {
+		int num = 0;
+		for(int i = 0; i <= n; i++) {
+			num+=i;
+			 if(num == n) {
+				 return true;
+			 } 
+	}
+		return false;
+	}
+	public static void method1(int n, int x) {
+		for(int i = n; i > 0; i--) {
+			for(int j = x; j > 0; j--) {
+				System.out.print(i);
+			}
+			System.out.println();
+		}
+	}
+	public static void method2(int n) {
+		for(int i = 1; i <= n; i++) {
+			for(int j = 1; j <=n; j++) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+	}
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		/*System.out.println(printFactors(12));
+		System.out.println(sumInts(10));
+		System.out.println(isPrime(17));
+		System.out.println(factorial(10));
+		System.out.println(lcm(3,8));
+		System.out.println(gcf(10,5));
+		System.out.println(sumDigits(1234));
+		primeNumberList(17);
+		System.out.println();
+		fibonacci(8);
+		System.out.println(isPerfect(6));
+		primeFactorization(300);
+		pyramid(5);
+		System.out.println(binary(500)); 
+		triangle(6);		
+		*/
+		method1(8,5);
+		method2(5);
+	}
+}

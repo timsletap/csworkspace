@@ -1,0 +1,121 @@
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class LinkListMethods {
+	
+	//1. return a newLL a at the end of b
+
+	public static LinkedList<String> append(LinkedList<String> a, LinkedList<String> b){
+		LinkedList<String> c = new LinkedList<String>();
+		ListIterator<String> temp = b.listIterator();
+		while(temp.hasNext()) {
+			c.add(temp.next());
+		}
+		ListIterator<String> temp2 = a.listIterator();
+		while(temp2.hasNext()) {
+			c.add(temp2.next());
+		}
+		return c;
+	}
+	
+	
+	
+	
+	//2. return a newLL of alternating values
+	public static LinkedList<String>alternateMerge(LinkedList<String> a, LinkedList<String> b){
+		LinkedList<String> c = new LinkedList<String>();
+		ListIterator<String> temp = b.listIterator();
+		ListIterator<String> temp2 = a.listIterator();
+		while(temp.hasNext() && temp2.hasNext()) {
+			c.add(temp.next());
+			c.add(temp2.next());
+		}
+		while(temp.hasNext()) {c.add(b.getFirst());}
+		while(temp2.hasNext()) {c.add(a.getFirst());}
+		
+		return c;
+	}
+			
+		
+	
+	
+		
+		
+	//3. return a newLL of reverse values		
+public static LinkedList<String> reverse (LinkedList<String> staff){
+			LinkedList<String> temp = new LinkedList<String>();
+			ListIterator<String> tempIter = staff.listIterator();
+			while(tempIter.hasNext()) {tempIter.next();}
+			while(tempIter.hasPrevious()) {temp.add(tempIter.previous());}
+			return temp;
+		}
+
+
+		
+
+	//4. return a newLL with 	a duplicate of each item   (HTJW   will become HHTTJJWW)
+		public static LinkedList<String>  duplicate (LinkedList<String> staff){
+			LinkedList<String> temp = new LinkedList<String>();
+			String tempElem = "";
+			ListIterator<String> tempIter = staff.listIterator();
+			while(tempIter.hasNext()) { 
+				tempElem = tempIter.next();
+				temp.add(tempElem);
+				temp.add(tempElem);
+			}
+			return temp;
+		}
+
+
+	//5. return a newLL with 	a repeat of the list at the end    (HTJW   will become HTJWHTJW)
+		public static LinkedList<String> repeat (LinkedList<String> staff){
+			LinkedList<String> temp = staff;
+			append(temp,staff);
+			return temp;
+
+}
+		
+
+	//6. Write a method that will search for and delete an inputted string    
+		public static void delete (LinkedList<String> staff, String searchFor){
+			ListIterator<String> temp = staff.listIterator();
+			while(temp.hasNext()) {
+				if(temp.next().equals(searchFor)) {
+					staff.remove();
+				}
+			}
+
+
+
+		}
+
+
+//7. Write a method that will merge 2 LinkedLists in alphabetical order
+// precondition: both LinkedLists are in order    
+	public static LinkedList<String> merge(LinkedList<String> one, LinkedList<String> two){
+		String tempX;
+		String tempY;
+		LinkedList<String> temp = new LinkedList<String>();
+		ListIterator<String> tempIterOne = one.listIterator();
+		ListIterator<String> tempIterTwo = two.listIterator();
+		while(tempIterOne.hasNext() && tempIterTwo.hasNext()) {
+			tempX = tempIterOne.next();
+			tempY = tempIterTwo.next();
+			if(tempX.compareTo(tempY) < 0){
+				temp.add(tempX);
+			} else {
+				temp.add(tempY);
+			}
+		}
+		while(tempIterOne.hasNext()) temp.add(tempIterOne.next());
+		while(tempIterTwo.hasNext()) temp.add(tempIterTwo.next());
+
+
+return temp;
+		}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}
