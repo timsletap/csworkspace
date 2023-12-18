@@ -1,0 +1,43 @@
+public class WaitLine {
+Queue<Patient> line;
+
+public WaitLine() {
+    line = new LinkedList<Patient>();
+}
+public void addPatient( Patient x) { 
+    line.add(x);
+}
+
+public void addPatient (String name){
+line.add(new Patient(name));
+}
+
+public Patient nextInLine() {
+    return line.peek();
+}
+// prints and removes the next patient in the queue
+public void nextPatient() {
+System.out.println(this.nextInLine);
+line.poll();
+}
+public void displayQueue() {
+System.out.println(line);
+}
+public long getAverageWaitTime(){
+    long avg = 0;
+    int count = 0;
+    for(int i = 0; i < one.size(); i++) {
+        avg += line.poll().getWaitTime();
+        count++;
+    }
+    return avg/count;
+}
+// This method will return the number of patients in the waitLine
+public int getPatientCount() {
+return line.size();
+}
+//This method will return true if there is a patient with the name lookFor,
+//false otherwise.
+public boolean contains(String lookFor) {
+
+}
