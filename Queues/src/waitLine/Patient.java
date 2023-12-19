@@ -1,3 +1,4 @@
+package src.waitLine;
 import java.sql.Timestamp;
 
 public class Patient {
@@ -58,7 +59,7 @@ public class Patient {
 		}
 		System.out.println(tc.getWaitTime());
 		System.out.println(tc);
-		// TODO Auto-generated method stub
+		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println(timestamp); 
 	}
