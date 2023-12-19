@@ -1,5 +1,6 @@
-package src.waitLine;
+package src;
 import java.sql.Timestamp;
+
 
 public class Patient {
 	String name;
