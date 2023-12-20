@@ -60,9 +60,11 @@ return false;
 public static void main(String[] args){
     WaitLine waitLine = new WaitLine();
     Scanner scanner = new Scanner(System.in);
+    Scanner scannerTwo = new Scanner(System.in);
 
     int choice;
     do {
+        
         System.out.println("Menu");
         System.out.println("1. Add Patient");
         System.out.println("2. Next Patient");
@@ -72,37 +74,38 @@ public static void main(String[] args){
         System.out.print("Type 1, 2, 3, 4, or 5: ");
 
         choice = scanner.nextInt();
-        
 
-        switch (choice) {
-            case 1:
-                System.out.print("Enter patient name: ");
-                String patientName = scanner.nextLine();
-                waitLine.addPatient(patientName);
-                break;
-            case 2:
-                if (waitLine.getPatientCount() > 0) {
-                    waitLine.nextPatient();
-                } else {
-                    System.out.println("Queue is empty.");
-                }
-                break;
-            case 3:
-                System.out.println("Average Wait Time: " + waitLine.getAverageWaitTime());
-                break;
-            case 4:
-                System.out.println("Queue: ");
-                waitLine.displayQueue();
-                break;
-            case 5:
-                System.out.println("Ends");
-                break;
-            default:
-                System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+        if (choice == 1) {
+            System.out.print("Enter patient name: ");
+            scannerTwo.nextLine(); 
+            String patientName = scannerTwo.nextLine();
+            waitLine.addPatient(patientName);
+            System.out.println("Patient Added!");
+        } 
+        if (choice == 2) {
+            if (waitLine.getPatientCount() > 0) {
+                waitLine.nextPatient();
+            } else {
+                System.out.println("Queue is empty.");
+            }
+        } 
+         if (choice == 3) {
+            System.out.println("Average Wait Time: " + waitLine.getAverageWaitTime());
+        } 
+        if (choice == 4) {
+            System.out.println("Queue: ");
+            waitLine.displayQueue();
+        } 
+        if (choice == 5) {
+            System.out.println("Ends");
+        } else {
+            System.out.println("Invalid choice. Please enter a number between 1 and 5.");
         }
 
     } while (choice != 5);
-}  
+    scanner.close();
+    scannerTwo.close();
+}
 }
 
 
