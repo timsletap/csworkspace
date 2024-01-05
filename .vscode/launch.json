@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "WaitLine",
+            "request": "launch",
+            "mainClass": "src.WaitLine",
+            "projectName": "csworkspace_e78e6548"
+        },
+        {
+            "type": "java",
+            "name": "Patient",
+            "request": "launch",
+            "mainClass": "src.Patient",
+            "projectName": "csworkspace_e78e6548"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
