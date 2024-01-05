@@ -6,17 +6,71 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "WaitLine",
             "request": "launch",
             "mainClass": "src.WaitLine",
             "projectName": "csworkspace_e78e6548"
+=======
+            "name": "CircularArrayQueue",
+            "request": "launch",
+            "mainClass": "CircularArrayQueue",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListQueue",
+            "request": "launch",
+            "mainClass": "ArrayListQueue",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Card",
+            "request": "launch",
+            "mainClass": "Card",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Zoo",
+            "request": "launch",
+            "mainClass": "src.Zoo",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Deck",
+            "request": "launch",
+            "mainClass": "Deck",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "ConcentricCircles",
+            "request": "launch",
+            "mainClass": "Looping.src.ConcentricCircles",
+            "projectName": "csworkspace_7994527c"
+>>>>>>> 16db017ac51a39ef72ce603f087b12b6bc83daf0
         },
         {
             "type": "java",
             "name": "Patient",
             "request": "launch",
+<<<<<<< HEAD
             "mainClass": "src.Patient",
             "projectName": "csworkspace_e78e6548"
+=======
+            "mainClass": "Patient",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "WaitLine",
+            "request": "launch",
+            "mainClass": "WaitLine",
+            "projectName": "csworkspace_7994527c"
+>>>>>>> 16db017ac51a39ef72ce603f087b12b6bc83daf0
         },
         {
             "type": "java",
