@@ -6,6 +6,62 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CircularArrayQueue",
+            "request": "launch",
+            "mainClass": "CircularArrayQueue",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListQueue",
+            "request": "launch",
+            "mainClass": "ArrayListQueue",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Card",
+            "request": "launch",
+            "mainClass": "Card",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Zoo",
+            "request": "launch",
+            "mainClass": "src.Zoo",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Deck",
+            "request": "launch",
+            "mainClass": "Deck",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "ConcentricCircles",
+            "request": "launch",
+            "mainClass": "Looping.src.ConcentricCircles",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "Patient",
+            "request": "launch",
+            "mainClass": "Patient",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
+            "name": "WaitLine",
+            "request": "launch",
+            "mainClass": "WaitLine",
+            "projectName": "csworkspace_7994527c"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
