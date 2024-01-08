@@ -74,13 +74,14 @@ public void cut() {
     while (!deck.isEmpty()) {
         halfTwo.offer(deck.poll());
     }
+    while (!halfTwo.isEmpty()) {
+        deck.offer(halfTwo.poll());
+    }
 
     while (!halfOne.isEmpty()) {
         deck.offer(halfOne.poll());
     }
-    while (!halfTwo.isEmpty()) {
-        deck.offer(halfTwo.poll());
-    }
+   
 }
 // complete a bridge shuffle and then cut the deck. Repeat 7 times
 public void completeShuffle() {
