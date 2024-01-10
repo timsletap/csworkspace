@@ -4,13 +4,15 @@ import java.sql.Timestamp;
 
 public class Patient {
 	String name;
-	long enterTime;
-	long exitTime;
+	int priority;
 	
+	public Patient(String name, int prior) {
+		this.name = name;
+		priority = prior;
+	}
 	public Patient(String name) {
 		this.name = name;
-		enterTime = System.currentTimeMillis();
-		exitTime=0;
+		priority = 0;
 	}
 
 	public String getName() {
@@ -21,32 +23,18 @@ public class Patient {
 		this.name = name;
 	}
 
-	public long getEnterTime() {
-		return enterTime;
+	public int getPriority(){
+		return this.priority;
 	}
 
-	public void setEnterTime(long enterTime) {
-		this.enterTime = enterTime;
-	}
-
-	public long getExitTime() {
-		return exitTime;
-	}
-
-	public void setExitTime(long exitTime) {
-		this.exitTime = exitTime;
+	public void setPriority(int x){
+		this.priority = x;
 	}
 	
-	public long getWaitTime() {
-		return (System.currentTimeMillis() - enterTime)/1000;
-	}
-	public long getTotalTime() {
-		return exitTime - enterTime;
-	}
 
 	@Override
 	public String toString() {
-		return  name + " waitTime=" + getWaitTime() + " seconds";
+		return  name + " Priority:  " + this.getPriority() + " ";
 	}
 	
 	public static void main(String[] args) {
@@ -59,7 +47,7 @@ public class Patient {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println(tc.getWaitTime());
+		
 		System.out.println(tc);
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
