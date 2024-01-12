@@ -46,6 +46,10 @@ public String getSuit() {
 	}
 	return "";
 }
+
+public int getValue(){
+	return value;
+}
 @Override
 public int compareTo(Card o) {
 	// TODO Auto-generated method stub

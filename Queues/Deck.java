@@ -100,6 +100,35 @@ public void customShuffle() {
     this.cut();
 
 }
+public static void war() {
+    Deck playerOneDeck = new Deck();
+    Deck playerTwoDeck = new Deck();
+
+    playerOneDeck.customShuffle();
+    playerTwoDeck.customShuffle();
+
+    
+    int rounds = 10; 
+    for (int i = 0; i < rounds; i++) {
+        Card playerOneCard = playerOneDeck.deal();
+        Card playerTwoCard = playerTwoDeck.deal();
+
+        System.out.println("Round " + (i + 1) + ":");
+        System.out.println("Player One's Card: " + playerOneCard);
+        System.out.println("Computer's Card: " + playerTwoCard);
+
+
+        if (playerOneCard.getValue() > playerTwoCard.getValue()) {
+            System.out.println("You win!");
+        } else if (playerOneCard.getValue() < playerTwoCard.getValue()) {
+            System.out.println("Computer wins!");
+        } else {
+            System.out.println("It's a tie!");
+        }
+
+        System.out.println();
+    }
+}
 
 
 public static void main(String[] args) {
@@ -120,6 +149,7 @@ a.customShuffle();
 for(int i=1; i<=5 ;i++) {
 	System.out.println(a.deal());
 }
+war();
 
 
 }

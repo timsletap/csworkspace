@@ -57,6 +57,7 @@ while (current != null) {
 return false;
 }
 
+
 public static void main(String[] args){
     WaitLine waitLine = new WaitLine();
     Scanner scanner = new Scanner(System.in);
