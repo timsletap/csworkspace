@@ -51,8 +51,22 @@ public int getValue(){
 	return value;
 }
 @Override
-public int compareTo(Card o) {
-	// TODO Auto-generated method stub
-	return 0;
+public int compareTo(Card otherCard) {
+     // Compare suits
+	 if (this.suit < otherCard.suit) {
+        return -1;
+    } else if (this.suit > otherCard.suit) {
+        return 1;
+    }
+
+    // Suits are equal, compare values
+    if (this.value < otherCard.value) {
+        return -1;
+    } else if (this.value > otherCard.value) {
+        return 1;
+    }
+
+    // Both suits and values are equal
+    return 0;
 }
 }

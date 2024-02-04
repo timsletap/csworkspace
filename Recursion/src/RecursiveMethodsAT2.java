@@ -1,4 +1,4 @@
-
+package Recursion.src;
 public class RecursiveMethodsAT2 {
 
 	public static boolean isPalindrome(String word) {

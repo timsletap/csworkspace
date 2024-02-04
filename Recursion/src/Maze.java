@@ -1,3 +1,4 @@
+package Recursion.src;
 public class Maze
 {
 	   private char[][] maze;
