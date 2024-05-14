@@ -1,4 +1,4 @@
-package Maps.MapImplementation;
+package Maps;
 import java.util.Map.Entry;
 import java.util.Set;
 
