@@ -154,6 +154,7 @@ public class MorseTree {
 	public static void main(String[] args)  throws Exception {
 		MorseTree tc = new MorseTree();
 		 playMorse("... --- ... ... --- ... ... --- ... ... --- ... ... --- ... ... --- ...");
+		 tc.convertMorsetoLetter("... --- ... ... --- ... ... --- ... ... --- ... ... --- ... ... --- ...");
 		 
 
 
