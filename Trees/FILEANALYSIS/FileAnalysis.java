@@ -5,19 +5,25 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 
+
 public class FileAnalysis {
     
     private ArrayList<String> tc;
+    private ArrayList<String> tcwithpunct;
 
 
 
     public FileAnalysis(String s) {
     tc = new ArrayList<String>();
+    tcwithpunct = new ArrayList<String>();
     File file = new File("Trees\\FILEANALYSIS\\dream.txt");
     try {
         Scanner inFile = new Scanner(file);
         while (inFile.hasNext()) {
             String temp = inFile.next();
+            if(temp.length() > 0){
+                tcwithpunct.add(temp);
+            }
             temp = temp.replaceAll("[^a-zA-Z]", "").toLowerCase();
             if(temp.length() > 0){
                 tc.add(temp);
@@ -90,7 +96,7 @@ public class FileAnalysis {
         }
         
     
-    public Set<String> misspelledWords(String dictionary){
+    public Set<String> misspelledWords(){
         Set<String> dict = new TreeSet<String>();
         Set<String> misspelled = new HashSet<String>();
         try (Scanner inFile = new Scanner(new File("Trees\\FILEANALYSIS\\words.txt"))) {
@@ -109,15 +115,49 @@ public class FileAnalysis {
         return misspelled;
     }
     
-
     public double GLRIndex() {
-    
+        int sentenceCount = 0;
+        int syllableCount = 0;
+        int wordCount = tc.size();
+        String vowels = "aeiouy";
+        for (String word : tcwithpunct) {
+            for (int i = 0; i < word.length(); i++) {
+                char ch = word.charAt(i);
+                if (ch == '.' || ch == '!' || ch == '?' || ch == ':' || ch == ';') {
+                    sentenceCount++;
+                }
+            }
+        }
+        for (String word : tc) {
+            int wordSyllableCount = 0;
+            boolean prevCharWasVowel = false;
+            word = word.toLowerCase();
+
+            for (int i = 0; i < word.length(); i++) {
+                char character = word.charAt(i);
+                boolean isVowel = vowels.indexOf(character) != -1;
+
+                if (isVowel && !prevCharWasVowel) {
+                    wordSyllableCount++;
+                    prevCharWasVowel = true;
+                } else if (!isVowel) {
+                    prevCharWasVowel = false;
+                }
+            }
+
+            if (word.endsWith("e") && wordSyllableCount > 1 && vowels.indexOf(word.charAt(word.length() - 2)) == -1) {
+                wordSyllableCount--;
+            }
+
+            syllableCount += Math.max(wordSyllableCount, 1);
+        }
+
+        double ASW = (double) syllableCount / wordCount;
+        double ASL = (double) wordCount / sentenceCount;
+
+        return (0.39 * ASL) + (11.8 * ASW) - 15.59;
     }
-    
 
-    
-
-   
 
     public static void main(String[] args) {
         FileAnalysis analysis = new FileAnalysis("Trees\\FILEANALYSIS\\dream.txt");
@@ -127,7 +167,7 @@ public class FileAnalysis {
         System.out.println("Top 30 Words: " + analysis.top30Words());
         System.out.println("Words by Length: " + analysis.wordsByLength());
         System.out.println("Longest Words: " + analysis.longestWordList());
-        System.out.println("Misspelled Words: " + analysis.misspelledWords("Trees\\FILEANALYSIS\\words.txt"));
+        System.out.println("Misspelled Words: " + analysis.misspelledWords());
         System.out.println("GLR Index: " + analysis.GLRIndex());
     }
 }
