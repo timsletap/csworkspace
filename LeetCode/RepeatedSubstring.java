@@ -1,3 +1,4 @@
+package LeetCode;
 public class RepeatedSubstring {
     public boolean repeatedSubstringPattern(String s) {
         String doubled = s + s;

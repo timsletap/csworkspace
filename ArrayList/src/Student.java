@@ -1,3 +1,5 @@
+package ArrayList.src;
+
 public class Student {
 
 	// the student's full name

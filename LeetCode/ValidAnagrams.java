@@ -1,3 +1,7 @@
+package LeetCode;
+
+import java.util.Arrays;
+
 public class ValidAnagrams{
     public boolean isAnagram(String s, String t) {
         if(s.length() != t.length()){

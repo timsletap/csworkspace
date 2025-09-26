@@ -1,3 +1,5 @@
+package ArrayList.src;
+
 
 public class BankAccount {
 	private int accountNum;
