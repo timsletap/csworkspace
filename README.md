@@ -1,0 +1,1 @@
+This repository is a collection of my solutions, notes, and experiments while practicing LeetCode problems and strengthening my computer science fundamentals. It is structured to track both my problem-solving progress and the key concepts I’m learning along the way.
